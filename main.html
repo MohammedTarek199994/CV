@@ -1,182 +1,751 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Mohammed Naga - CV</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        .container {
-            max-width: 210mm;
-            margin: 20px auto;
-            padding: 15mm;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 5px;
-        }
-        .subtitle {
-            text-align: center;
-            font-weight: bold;
-            color: #7f8c8d;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-        .contact-info {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 0.95em;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --text-color: #333;
+        --bg-color: #f9f9f9;
+        --card-bg: #ffffff;
+        --border-color: #ddd;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .dark-mode {
+        --primary-color: #2980b9;
+        --secondary-color: #ecf0f1;
+        --text-color: #f0f0f0;
+        --bg-color: #1a1a1a;
+        --card-bg: #2d2d2d;
+        --border-color: #444;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border-bottom: 2px solid var(--primary-color);
+        border-top: 2px solid var(--primary-color);
+      }
+
+      .controls {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+      }
+
+      .btn {
+        padding: 10px 15px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: 25%;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+      }
+
+      .cv-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        padding: 30px;
+        margin-bottom: 30px;
+      }
+
+      .profile-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .name {
+        font-size: 32px;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .title {
+        font-size: 20px;
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .section {
+        margin-bottom: 25px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        font-weight: bold;
+        color: var(--primary-color);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+
+      .two-column {
+        display: flex;
+        gap: 20px;
+      }
+
+      .column {
+        flex: 1;
+      }
+
+      .skill-category {
+        margin-bottom: 15px;
+      }
+
+      .skill-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: var(--secondary-color);
+      }
+
+      .skill-list {
+        padding-left: 20px;
+      }
+
+      .job {
+        margin-bottom: 20px;
+      }
+
+      .job-title {
+        font-weight: bold;
+        color: var(--secondary-color);
+      }
+
+      .company {
+        font-style: italic;
+        color: var(--primary-color);
+      }
+
+      .date {
+        color: #7f8c8d;
+        font-size: 14px;
+        margin: 5px 0;
+      }
+
+      .job-description {
+        padding-left: 15px;
+      }
+
+      .job-description li {
+        margin-bottom: 5px;
+      }
+
+      .education-item {
+        margin-bottom: 15px;
+      }
+
+      .project {
+        margin-bottom: 15px;
+      }
+
+      .project-title {
+        font-weight: bold;
+        color: var(--secondary-color);
+      }
+
+      /* Language-specific styles */
+      .lang-ar {
+        direction: rtl;
+        text-align: right;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .lang-ar .contact-info {
+        justify-content: center;
+      }
+
+      .lang-ar .skill-list,
+      .lang-ar .job-description {
+        padding-right: 20px;
+        padding-left: 0;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
         .two-column {
-            display: flex;
-            justify-content: space-between;
+          flex-direction: column;
         }
-        .column {
-            width: 48%;
+
+        .contact-info {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
         }
-        ul {
-            padding-left: 20px;
+
+        header {
+          flex-direction: column;
+          gap: 15px;
         }
-        .job-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .company, .date {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 5px;
-        }
-        .project-title {
-            font-weight: bold;
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Mohammed Tarek Mohammed Hassan Khalil Naga</h1>
-        <p class="subtitle">React Native / Node.js Developer</p>
-
-        <div class="contact-info">
-            <strong>Phone:</strong> +966 597037616 |
-            <strong>Email:</strong> m.naga199994@gmail.com |
-            <strong>Location:</strong> Alexandria, Egypt
+      <header>
+        <div class="controls">
+          <button class="btn" id="lang-toggle">
+            <i class="fas fa-language"></i> Switch to Arabic
+          </button>
+          <button class="btn" id="theme-toggle">
+            <i class="fas fa-moon"></i> Dark Mode
+          </button>
+          <button class="btn" onclick="window.print()">
+            <i class="fas fa-print"></i> Print
+          </button>
         </div>
-        <hr>
+      </header>
 
-        <div class="section">
-            <h2>Profile</h2>
-            <p>Experienced React Native frontend and Node.js backend developer with strong skills in mobile app development, API integration, and SQL Server database management. Proven track record in building cross-platform mobile apps, optimizing performance, and delivering production-ready solutions.</p>
-        </div>
-
-        <div class="section">
-            <h2>Technical Skills</h2>
-            <div class="two-column">
-                <div class="column">
-                    <ul>
-                        <li><strong>Programming Languages:</strong> JavaScript, Java, C, SQL</li>
-                        <li><strong>Frontend:</strong> React Native, ReactJS, Redux Toolkit, Expo</li>
-                        <li><strong>Backend:</strong> Node.js, Express.js</li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <ul>
-                        <li><strong>Databases:</strong> SQL Server, MySQL</li>
-                        <li><strong>Version Control:</strong> Git, GitHub</li>
-                        <li><strong>Cloud & Deployment:</strong> Linux Server Management</li>
-                        <li><strong>Other Tools:</strong> REST APIs, i18n (react-i18next), PDF & network printing integration</li>
-                    </ul>
-                </div>
+      <!-- English CV -->
+      <div class="cv-card lang-en" id="english-cv">
+        <div class="profile-header">
+          <div class="name">Mohammed Tarek Mohammed Hassan Khalil Naga</div>
+          <div class="title">React Native / Node.js Developer</div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i> +966 597037616
             </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i> m.naga199994@gmail.com
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i> Alexandria, Egypt
+            </div>
+          </div>
         </div>
 
         <div class="section">
-            <h2>Experience</h2>
-            <p>
-                <span class="job-title">React Native Developer (Frontend) & Node.js Developer (Backend)</span> — Full Time — <span class="company">Gomla Market Company</span><br>
-                <span class="date">Dec 2023 – Mar 2025</span>
-            </p>
-            <ul>
-                <li>Developed and maintained cross-platform mobile application using React Native and Expo.</li>
-                <li>Built and optimized backend services using Node.js and Express.</li>
-                <li>Integrated APIs and SQL Server database operations for seamless functionality.</li>
-                <li>Implemented i18n for multilingual support and PDF printing integration for network printers.</li>
-            </ul>
-
-            <p>
-                <span class="job-title">Production Support Engineer</span> — Intern — <span class="company">Spirula Company</span><br>
-                <span class="date">Jul 2019</span>
-            </p>
-            <ul>
-                <li>Provided support for Linux-based production environments and resolved technical incidents.</li>
-            </ul>
-
-            <p>
-                <span class="job-title">Database Management and ERP Systems</span> — Intern — <span class="company">Egypt Experts Company</span><br>
-                <span class="date">Aug 2019 / Sep 2018</span>
-            </p>
-            <ul>
-                <li>Hands-on experience in database management systems and ERP solutions.</li>
-            </ul>
-
-            <p>
-                <span class="job-title">Web Developer</span> — Intern — <span class="company">Eprom Company</span><br>
-                <span class="date">Aug 2018 – Sep 2018</span>
-            </p>
-            <ul>
-                <li>Developed software applications and assisted in web development tasks.</li>
-            </ul>
+          <div class="section-title">Profile</div>
+          <p>
+            Experienced React Native frontend and Node.js backend developer with
+            strong skills in mobile app development, API integration, and SQL
+            Server database management. Proven track record in building
+            cross-platform mobile apps, optimizing performance, and delivering
+            production-ready solutions.
+          </p>
         </div>
 
         <div class="section">
-            <h2>Education</h2>
-            <p>
-                <span class="job-title">Bachelor’s Degree in Computer Engineering</span> — Pharos University, Faculty of Engineering — Computer Department<br>
-                <span class="date">Graduated with Excellent Grades (GPA: 3.71)</span><br>
-                <span class="company">Academic program certified by KTH (Royal Institute of Technology), Sweden</span>
-            </p>
+          <div class="section-title">Technical Skills</div>
+          <div class="two-column">
+            <div class="column">
+              <div class="skill-category">
+                <div class="skill-title">Programming Languages:</div>
+                <ul class="skill-list">
+                  <li>JavaScript</li>
+                  <li>Java</li>
+                  <li>C</li>
+                  <li>SQL</li>
+                </ul>
+              </div>
+
+              <div class="skill-category">
+                <div class="skill-title">Frontend:</div>
+                <ul class="skill-list">
+                  <li>React Native</li>
+                  <li>ReactJS</li>
+                  <li>Redux Toolkit</li>
+                  <li>Expo</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="skill-category">
+                <div class="skill-title">Backend:</div>
+                <ul class="skill-list">
+                  <li>Node.js</li>
+                  <li>Express.js</li>
+                </ul>
+              </div>
+
+              <div class="skill-category">
+                <div class="skill-title">Databases:</div>
+                <ul class="skill-list">
+                  <li>SQL Server</li>
+                  <li>MySQL</li>
+                </ul>
+              </div>
+
+              <div class="skill-category">
+                <div class="skill-title">Other Tools:</div>
+                <ul class="skill-list">
+                  <li>Git, GitHub</li>
+                  <li>Linux Server Management</li>
+                  <li>REST APIs</li>
+                  <li>i18n (react-i18next)</li>
+                  <li>PDF & network printing integration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="section">
-            <h2>Selected Projects</h2>
-            <p>
-                <span class="project-title">Shoplifting Detection System (Panoptes):</span> AI-powered system to detect shoplifting using camera-based monitoring and SMS alerts for real-time notifications.
-            </p>
-            <p>
-                <span class="project-title">Management of Tower Under Construction:</span> Construction management system tracking progress floor-by-floor using JSP, Java, and SQL.
-            </p>
-            <p>
-                <span class="project-title">Assembler and Compiler:</span> Java-based compiler implementing lexical analysis, parsing, and code generation.
-            </p>
-            <p>
-                <span class="project-title">Online Library Management System:</span> Web-based system in Java for book tracking, user management, and borrowing functionality.
-            </p>
-            <p>
-                <span class="project-title">Shooting Game (Desktop Application):</span> Multithreaded shooting game in Java with real-time collision detection.
-            </p>
-            <p>
-                <span class="project-title">Professional & Personal Projects:</span>
-            </p>
-            <ul>
-                <li><strong>React Native Mobile App — Gomla Market (Infor Asset Management):</strong> Cross-platform mobile app integrated with Infor Asset Management, Node.js/MSSQL backend, i18n, and PDF printing for network printers.</li>
-                <li><strong>M Naga Blog — Personal:</strong> Blogging platform using Express.js and MongoDB with EJS rendering.</li>
+          <div class="section-title">Experience</div>
+
+          <div class="job">
+            <div class="job-title">
+              React Native Developer (Frontend) & Node.js Developer (Backend)
+            </div>
+            <div class="company">Full Time — Gomla Market Company</div>
+            <div class="date">Dec 2023 – Mar 2025</div>
+            <ul class="job-description">
+              <li>
+                Developed and maintained cross-platform mobile application using
+                React Native and Expo.
+              </li>
+              <li>
+                Built and optimized backend services using Node.js and Express.
+              </li>
+              <li>
+                Integrated APIs and SQL Server database operations for seamless
+                functionality.
+              </li>
+              <li>
+                Implemented i18n for multilingual support and PDF printing
+                integration for network printers.
+              </li>
             </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-title">Production Support Engineer</div>
+            <div class="company">Intern — Spirula Company</div>
+            <div class="date">Jul 2019</div>
+            <ul class="job-description">
+              <li>
+                Provided support for Linux-based production environments and
+                resolved technical incidents.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-title">Database Management and ERP Systems</div>
+            <div class="company">Intern — Egypt Experts Company</div>
+            <div class="date">Aug 2019 / Sep 2018</div>
+            <ul class="job-description">
+              <li>
+                Hands-on experience in database management systems and ERP
+                solutions.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-title">Web Developer</div>
+            <div class="company">Intern — Eprom Company</div>
+            <div class="date">Aug 2018 – Sep 2018</div>
+            <ul class="job-description">
+              <li>
+                Developed software applications and assisted in web development
+                tasks.
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="section">
+          <div class="section-title">Education</div>
+
+          <div class="education-item">
+            <div class="job-title">
+              Bachelor's Degree in Computer Engineering
+            </div>
+            <div class="company">
+              Pharos University, Faculty of Engineering — Computer Department
+            </div>
+            <div class="date">Graduated with Excellent Grades (GPA: 3.71)</div>
+            <div>
+              Academic program certified by KTH (Royal Institute of Technology),
+              Sweden
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Selected Projects</div>
+
+          <div class="project">
+            <div class="project-title">
+              Shoplifting Detection System (Panoptes)
+            </div>
+            <p>
+              AI-powered system to detect shoplifting using camera-based
+              monitoring and SMS alerts for real-time notifications.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">
+              Management of Tower Under Construction
+            </div>
+            <p>
+              Construction management system tracking progress floor-by-floor
+              using JSP, Java, and SQL.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">Assembler and Compiler</div>
+            <p>
+              Java-based compiler implementing lexical analysis, parsing, and
+              code generation.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">Online Library Management System</div>
+            <p>
+              Web-based system in Java for book tracking, user management, and
+              borrowing functionality.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">Shooting Game (Desktop Application)</div>
+            <p>
+              Multithreaded shooting game in Java with real-time collision
+              detection.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">
+              React Native Mobile App — Gomla Market (Infor Asset Management)
+            </div>
+            <p>
+              Cross-platform mobile app integrated with Infor Asset Management,
+              Node.js/MSSQL backend, i18n, and PDF printing for network
+              printers.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">M Naga Blog — Personal</div>
+            <p>
+              Blogging platform using Express.js and MongoDB with EJS rendering.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arabic CV (Initially Hidden) -->
+      <div class="cv-card lang-ar hidden" id="arabic-cv">
+        <div class="profile-header">
+          <div class="name">محمد طارق محمد حسن خليل نجا</div>
+          <div class="title">مطور React Native / Node.js</div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i> +966 597037616
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i> m.naga199994@gmail.com
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i> الإسكندرية، مصر
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">الملف الشخصي</div>
+          <p>
+            مطور واجهات أمامية بخبرة باستخدام React Native وواجهات خلفية
+            باستخدام Node.js، مع مهارات قوية في تطوير تطبيقات الهاتف، تكامل
+            واجهات برمجة التطبيقات (API)، وإدارة قواعد بيانات SQL Server. لدي
+            سجل حافل في بناء تطبيقات الهاتف متعددة المنصات، وتحسين الأداء،
+            وتقديم حلول جاهزة للإنتاج.
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-title">المهارات التقنية</div>
+          <div class="two-column">
+            <div class="column">
+              <div class="skill-category">
+                <div class="skill-title">لغات البرمجة:</div>
+                <ul class="skill-list">
+                  <li>JavaScript</li>
+                  <li>Java</li>
+                  <li>C</li>
+                  <li>SQL</li>
+                </ul>
+              </div>
+
+              <div class="skill-category">
+                <div class="skill-title">واجهة أمامية (Frontend):</div>
+                <ul class="skill-list">
+                  <li>React Native</li>
+                  <li>ReactJS</li>
+                  <li>Redux Toolkit</li>
+                  <li>Expo</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="skill-category">
+                <div class="skill-title">واجهة خلفية (Backend):</div>
+                <ul class="skill-list">
+                  <li>Node.js</li>
+                  <li>Express.js</li>
+                </ul>
+              </div>
+
+              <div class="skill-category">
+                <div class="skill-title">قواعد البيانات:</div>
+                <ul class="skill-list">
+                  <li>SQL Server</li>
+                  <li>MySQL</li>
+                </ul>
+              </div>
+
+              <div class="skill-category">
+                <div class="skill-title">أدوات أخرى:</div>
+                <ul class="skill-list">
+                  <li>Git, GitHub</li>
+                  <li>إدارة خوادم Linux</li>
+                  <li>REST APIs</li>
+                  <li>i18n (react-i18next)</li>
+                  <li>تكامل طباعة PDF والطباعة على الشبكة</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">الخبرة العملية</div>
+
+          <div class="job">
+            <div class="job-title">
+              مطور React Native (واجهة أمامية) ومطور Node.js (واجهة خلفية)
+            </div>
+            <div class="company">دوام كامل — شركة جملة ماركت</div>
+            <div class="date">ديسمبر 2023 – مارس 2025</div>
+            <ul class="job-description">
+              <li>
+                تطوير وصيانة تطبيقات الهاتف متعددة المنصات باستخدام React Native
+                و Expo.
+              </li>
+              <li>بناء وتحسين الخدمات الخلفية باستخدام Node.js و Express.</li>
+              <li>
+                تكامل واجهات برمجة التطبيقات (APIs) وعمليات قاعدة بيانات SQL
+                Server لضمان functionality سلس.
+              </li>
+              <li>
+                تنفيذ الدعم متعدد اللغات (i18n) وتكامل طباعة PDF للطابعات
+                الشبكية.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-title">مهندس دعم الإنتاج</div>
+            <div class="company">متدرب — شركة سبيرولا</div>
+            <div class="date">يوليو 2019</div>
+            <ul class="job-description">
+              <li>
+                تقديم الدعم لبيئات الإنتاج المعتمدة على Linux وحل المشكلات
+                التقنية.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-title">إدارة قواعد البيانات وأنظمة ERP</div>
+            <div class="company">متدرب — شركة Egypt Experts</div>
+            <div class="date">أغسطس 2019 / سبتمبر 2018</div>
+            <ul class="job-description">
+              <li>
+                اكتساب خبرة عملية في أنظمة إدارة قواعد البيانات وحلول ERP.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-title">مطور ويب</div>
+            <div class="company">متدرب — شركة Eprom</div>
+            <div class="date">أغسطس 2018 – سبتمبر 2018</div>
+            <ul class="job-description">
+              <li>تطوير تطبيقات برمجية والمساعدة في مهام تطوير الويب.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">التعليم</div>
+
+          <div class="education-item">
+            <div class="job-title">بكالوريوس في هندسة الحاسبات</div>
+            <div class="company">جامعة فاروس، كلية الهندسة — قسم الحاسبات</div>
+            <div class="date">تخرجت بتقدير امتياز (المعدل التراكمي: 3.71)</div>
+            <div>
+              برنامج أكاديمي معتمد من KTH (المعهد الملكي للتكنولوجيا)، السويد
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">المشاريع المختارة</div>
+
+          <div class="project">
+            <div class="project-title">
+              نظام كشف سرقة المحلات التجارية (Panoptes)
+            </div>
+            <p>
+              نظام مدعوم بالذكاء الاصطناعي للكشف عن السرقة باستخدام المراقبة
+              بالكاميرات وإشعارات SMS للتنبيه في الوقت الفعلي.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">نظام إدارة الأبراج تحت الإنشاء</div>
+            <p>
+              نظام إدارة construction لتتبع التقدم طابقًا بطابق باستخدام JSP و
+              Java و SQL.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">
+              مجمّع ومُصرّف (Assembler and Compiler)
+            </div>
+            <p>
+              مُصرّف مبرمج بلغة Java ينفذ التحليل Lexical والتحليل النحوي
+              Parsing وتوليد الأكواد.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">نظام إدارة مكتبة إلكترونية</div>
+            <p>
+              نظام ويب مبرمج بلغة Java لتتبع الكتب وإدارة المستخدمين ووظائف
+              الاستعارة.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">لعبة الرماية (تطبيق桌面)</div>
+            <p>
+              لعبة رماية متعددة الخيوط (Multithreaded) مبرمجة بلغة Java مع كشف
+              Collision في الوقت الحقيقي.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">
+              تطبيق React Native — Gomla Market (Infor Asset Management)
+            </div>
+            <p>
+              تطبيق هاتف متعدد المنصات متكامل مع Infor Asset Management، وواجهة
+              خلفية بـ Node.js/MSSQL، ودعم多 اللغات (i18n)، وطباعة PDF للطابعات
+              الشبكية.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="project-title">مدونة M Naga — شخصية</div>
+            <p>منصة تدوين باستخدام Express.js و MongoDB مع عرض EJS.</p>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+
+    <script>
+      // Toggle between light and dark mode
+      const themeToggle = document.getElementById("theme-toggle");
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
+          themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        } else {
+          themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+        }
+      });
+
+      // Toggle between English and Arabic
+      const langToggle = document.getElementById("lang-toggle");
+      const englishCV = document.getElementById("english-cv");
+      const arabicCV = document.getElementById("arabic-cv");
+
+      langToggle.addEventListener("click", () => {
+        englishCV.classList.toggle("hidden");
+        arabicCV.classList.toggle("hidden");
+
+        if (englishCV.classList.contains("hidden")) {
+          langToggle.innerHTML =
+            '<i class="fas fa-language"></i> Switch to English';
+        } else {
+          langToggle.innerHTML =
+            '<i class="fas fa-language"></i> Switch to Arabic';
+        }
+      });
+    </script>
+  </body>
 </html>
